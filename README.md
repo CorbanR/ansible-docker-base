@@ -1,6 +1,7 @@
 Selecting Versions of Ansible
 =============================
-Based on Ubuntu and Debian base images
+Based on Ubuntu and Debian base images.
+Images on DockerHub will be updated periodically.
 
 The following options are available:
 
@@ -10,8 +11,6 @@ Ubuntu:
 
 Debian:
     FROM corbanr/ansible:jessie
-
-Images on DockerHub will be updated periodically.
 
 Deprecation:
 The following will eventually be depricated in favor of code names.
