@@ -1,5 +1,5 @@
 # Latest Ubuntu LTS (Trusty 14.04)
-FROM ubuntu:latest
+FROM ubuntu:trusty
 MAINTAINER Corban Raun
 RUN apt-get update && \
     apt-get install --no-install-recommends -y software-properties-common && \
