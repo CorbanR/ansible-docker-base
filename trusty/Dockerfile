@@ -1,4 +1,3 @@
-# Latest Ubuntu LTS (Trusty 14.04)
 FROM ubuntu:trusty
 MAINTAINER Corban Raun
 RUN apt-get update && \

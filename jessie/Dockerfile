@@ -1,4 +1,3 @@
-# Latest Debian Stable (jessie)
 FROM debian:jessie
 MAINTAINER Corban Raun
 

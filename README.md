@@ -1,10 +1,14 @@
 Selecting Versions of Ansible
 =============================
-Based on Ubuntu 14.04 and Debian8
+Based on Ubuntu and Debian base images
 
 The following options are available:
 
-    FROM corbanr/ansible:ubuntu
-    FROM corbanr/ansible:debian
+Ubuntu:
+    FROM corbanr/ansible:xenial
+    FROM corbanr/ansible:trusty
+
+Debian:
+    FROM corbanr/ansible:jessie
 
 Images on DockerHub will be updated periodically.
