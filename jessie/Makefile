@@ -2,7 +2,7 @@ NS = corbanr
 REPO = ansible
 VERSION ?= jessie
 
-default: push 
+default: push
 
 build:
 	docker build --no-cache --pull --rm -t $(NS)/$(REPO):$(VERSION) .
