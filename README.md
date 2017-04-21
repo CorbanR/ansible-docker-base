@@ -13,9 +13,3 @@ Ubuntu:
 Debian:
 
     FROM corbanr/ansible:jessie
-
-Deprecation:
-The following will eventually be deprecated in favor of code names.
-
-    FROM corbanr/ansible:ubuntu
-    FROM corbanr/ansible:debian
