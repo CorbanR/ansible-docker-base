@@ -1,0 +1,25 @@
+ARG ALPINE_VERSION=latest
+
+FROM alpine:$ALPINE_VERSION as builder
+ARG LIBSSL=openssl-dev
+ARG ANSIBLE_VERSION=2.7
+ARG ANSIBLE_VERSION_MAX=2.8
+
+# Don't write .pyc files
+ENV PYTHONDONTWRITEBYTECODE=1
+# Force the stdout and stderr streams to be unbuffered
+ENV PYTHONUNBUFFERED=1
+ENV PATH="/ansible-venv/bin:$PATH"
+# Install build deps
+RUN apk add --no-cache python3-dev py3-pip \
+    libffi-dev build-base ${LIBSSL} && \
+    python3 -m venv /ansible-venv
+# Install ansible via pip
+RUN pip install pip setuptools --upgrade && \
+    pip install "ansible>=${ANSIBLE_VERSION},<${ANSIBLE_VERSION_MAX}" --upgrade
+
+# Image with python and ansible
+FROM alpine:$ALPINE_VERSION
+ENV PATH="/ansible-venv/bin:$PATH"
+RUN apk add --no-cache python3
+COPY --from=builder /ansible-venv /ansible-venv

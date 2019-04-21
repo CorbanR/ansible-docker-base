@@ -1,0 +1,26 @@
+ARG UBUNTU_VERSION=latest
+
+FROM ubuntu:$UBUNTU_VERSION as builder
+ARG LIBSSL=openssl-dev
+ARG ANSIBLE_VERSION=2.7
+ARG ANSIBLE_VERSION_MAX=2.8
+
+# Don't write .pyc files
+ENV PYTHONDONTWRITEBYTECODE=1
+# Force the stdout and stderr streams to be unbuffered
+ENV PYTHONUNBUFFERED=1
+ENV PATH="/ansible-venv/bin:$PATH"
+# Install build deps
+RUN apt-get update && apt-get install -y python3-dev python3-pip \
+    python3-venv build-essential ${LIBSSL} && \
+    python3 -m venv /ansible-venv
+# Install ansible via pip
+RUN pip install pip setuptools --upgrade && \
+    pip install "ansible>=${ANSIBLE_VERSION},<${ANSIBLE_VERSION_MAX}" --upgrade
+
+# Image with python and ansible
+FROM ubuntu:$UBUNTU_VERSION
+ENV PATH="/ansible-venv/bin:$PATH"
+RUN apt-get update && apt-get install -y python3 && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+COPY --from=builder /ansible-venv /ansible-venv
