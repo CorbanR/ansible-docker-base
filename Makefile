@@ -17,7 +17,8 @@ alpine:
 		--build-arg ANSIBLE_VERSION_MAX=$(ANSIBLE_VERSION_MAX) \
 		-f Dockerfile.alpine \
 		-t $(NS)/$(REPO):$(ANSIBLE_VERSION)-alpine$(ALPINE_VERSION) \
-		-t $(NS)/$(REPO):$(ANSIBLE_VERSION)-alpine .
+		-t $(NS)/$(REPO):$(ANSIBLE_VERSION)-alpine \
+		-t $(NS)/$(REPO) .
 
 debian:
 	docker build --no-cache --pull --compress --rm  \
@@ -41,6 +42,7 @@ ubuntu:
 alpine-push: alpine
 	docker push $(NS)/$(REPO):$(ANSIBLE_VERSION)-alpine$(ALPINE_VERSION)
 	docker push $(NS)/$(REPO):$(ANSIBLE_VERSION)-alpine
+	docker push $(NS)/$(REPO)
 
 debian-push: debian
 	docker push $(NS)/$(REPO):$(ANSIBLE_VERSION)-debian$(DEBIAN_VERSION)
