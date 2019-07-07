@@ -1,0 +1,12 @@
+---
+- name: install vim
+  package:
+    name: vim-tiny
+    state: present
+  when: ansible_os_family == 'Debian'
+
+- name: install vim
+  package:
+    name: vim
+    state: present
+  when: ansible_distribution == 'Alpine'
