@@ -5,10 +5,7 @@
       "image": "corbanr/ansible:2.8-debian",
       "pull": true,
       "commit": false,
-      "export_path": "debian-test.tar",
-      "changes": [
-      "LABEL version=1.0"
-      ]
+      "export_path": "debian-test.tar"
     }
   ],
   "provisioners":[
@@ -34,7 +31,10 @@
     {
       "type": "docker-import",
       "repository": "localpacker/debian-test",
-      "tag": "0.1"
+      "tag": "0.1",
+      "changes": [
+      "LABEL version=1.0"
+      ]
     }
   ]
 }

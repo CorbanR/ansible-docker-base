@@ -5,10 +5,7 @@
       "image": "corbanr/ansible:2.8-alpine",
       "pull": true,
       "commit": false,
-      "export_path": "alpine-test.tar",
-      "changes": [
-      "LABEL version=1.0"
-      ]
+      "export_path": "alpine-test.tar"
     }
   ],
   "provisioners":[
@@ -33,7 +30,10 @@
     {
       "type": "docker-import",
       "repository": "localpacker/alpine-test",
-      "tag": "0.1"
+      "tag": "0.1",
+      "changes": [
+      "LABEL version=1.0"
+      ]
     }
   ]
 }
