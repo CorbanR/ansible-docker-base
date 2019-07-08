@@ -3,7 +3,7 @@
     {
       "type": "docker",
       "image": "corbanr/ansible:2.8-debian",
-      "pull": false,
+      "pull": true,
       "commit": false,
       "export_path": "debian-test.tar",
       "changes": [

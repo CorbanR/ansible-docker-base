@@ -3,7 +3,7 @@
     {
       "type": "docker",
       "image": "corbanr/ansible:2.8-ubuntu",
-      "pull": false,
+      "pull": true,
       "commit": false,
       "export_path": "ubuntu-test.tar",
       "changes": [
