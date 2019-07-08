@@ -1,0 +1,30 @@
+---
+image:
+  name: docker:stable
+  entrypoint: ["/bin/sh", "-c"]
+
+variables:
+  COMPOSE_FILE: 'docker-compose.test.yml'
+  # Required for gitlab public runners
+  DOCKER_DRIVER: overlay2
+  DOCKER_HOST: tcp://docker:2375/
+
+services:
+  # Required for gitlab public runners
+  - docker:dind
+
+stages:
+  - build
+
+before_script:
+  - docker version
+  - docker info
+  - apk --no-cache add make
+
+build:
+  stage: build
+  script:
+    - echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin
+    - make all-push
+  tags:
+    - docker
