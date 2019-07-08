@@ -28,3 +28,7 @@ build:
     - make all-push
   tags:
     - docker
+
+after_script:
+  - rm -rf /root/.docker/config.json
+  - docker system prune -af || true
