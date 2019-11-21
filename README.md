@@ -7,19 +7,19 @@ The following options are available:
 
 Alpine:
 
-    FROM corbanr/ansible:2.8-alpine3.9
-    FROM corbanr/ansible:2.8-alpine
+    FROM corbanr/ansible:2.9-alpine3.10
+    FROM corbanr/ansible:2.9-alpine
 
 Debian:
 
-    FROM corbanr/ansible:2.8-debian9.8
-    FROM corbanr/ansible:2.8-debian
+    FROM corbanr/ansible:2.9-debian10.1
+    FROM corbanr/ansible:2.9-debian
 
 Ubuntu:
 
-    FROM corbanr/ansible:2.8-ubuntu18.04
-    FROM corbanr/ansible:2.8-ubuntu
+    FROM corbanr/ansible:2.9-ubuntu18.04
+    FROM corbanr/ansible:2.9-ubuntu
 
 # TODO
-- Maybe add ansible minor tags. Example: `ansible:2.8.2-ubuntu`
+- Maybe add ansible minor tags. Example: `ansible:2.9.1-ubuntu`
   - Add latest tag, if minor tags are added. Example: `ansible:latest-ubuntu`
