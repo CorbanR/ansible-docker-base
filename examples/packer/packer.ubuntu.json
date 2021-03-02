@@ -2,7 +2,7 @@
   "builders":[
     {
       "type": "docker",
-      "image": "corbanr/ansible:2.8-ubuntu",
+      "image": "corbanr/ansible:2.9-ubuntu",
       "pull": true,
       "commit": false,
       "export_path": "ubuntu-test.tar"

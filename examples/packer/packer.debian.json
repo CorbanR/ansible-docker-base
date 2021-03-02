@@ -2,7 +2,7 @@
   "builders":[
     {
       "type": "docker",
-      "image": "corbanr/ansible:2.8-debian",
+      "image": "corbanr/ansible:2.9-debian",
       "pull": true,
       "commit": false,
       "export_path": "debian-test.tar"

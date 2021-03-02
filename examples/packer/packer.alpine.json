@@ -2,7 +2,7 @@
   "builders":[
     {
       "type": "docker",
-      "image": "corbanr/ansible:2.8-alpine",
+      "image": "corbanr/ansible:2.9-alpine",
       "pull": true,
       "commit": false,
       "export_path": "alpine-test.tar"
