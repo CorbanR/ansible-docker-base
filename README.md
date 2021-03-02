@@ -7,17 +7,17 @@ The following options are available:
 
 Alpine:
 
-    FROM corbanr/ansible:2.9-alpine3.10
+    FROM corbanr/ansible:2.9-alpine3.13
     FROM corbanr/ansible:2.9-alpine
 
 Debian:
 
-    FROM corbanr/ansible:2.9-debian10.1
+    FROM corbanr/ansible:2.9-debian10.8
     FROM corbanr/ansible:2.9-debian
 
 Ubuntu:
 
-    FROM corbanr/ansible:2.9-ubuntu18.04
+    FROM corbanr/ansible:2.9-ubuntu20.04
     FROM corbanr/ansible:2.9-ubuntu
 
 # TODO
