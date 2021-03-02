@@ -12,10 +12,10 @@ ENV PYTHONUNBUFFERED=1
 ENV PATH="/ansible-venv/bin:$PATH"
 # Install build deps
 RUN apk add --no-cache python3-dev py3-pip \
-    libffi-dev build-base ${LIBSSL} && \
+    libffi-dev rust cargo build-base ${LIBSSL} && \
     python3 -m venv /ansible-venv
 # Install ansible via pip
-RUN pip install pip setuptools --upgrade && \
+RUN pip install pip setuptools wheel --upgrade && \
     pip install "ansible>=${ANSIBLE_VERSION},<${ANSIBLE_VERSION_MAX}" --upgrade
 
 # Image with python and ansible

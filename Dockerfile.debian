@@ -13,10 +13,14 @@ ENV PATH="/ansible-venv/bin:$PATH"
 ENV DEBIAN_FRONTEND=noninteractive
 # Install build deps
 RUN apt-get update && apt-get install -y python3-dev python3-pip \
-    python3-venv build-essential ${LIBSSL} && \
+    python3-venv curl build-essential ${LIBSSL} && \
     python3 -m venv /ansible-venv
+# Install rust for python packages(cryptography)
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+ENV PATH="$HOME/.cargo/bin:$PATH"
+
 # Install ansible via pip
-RUN pip install pip setuptools --upgrade && \
+RUN pip install pip setuptools wheel --upgrade && \
     pip install "ansible>=${ANSIBLE_VERSION},<${ANSIBLE_VERSION_MAX}" --upgrade
 
 # Image with python and ansible
