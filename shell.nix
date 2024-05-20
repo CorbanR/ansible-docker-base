@@ -35,7 +35,7 @@ in mkShell rec {
     libyaml
     ncurses
     openssl
-    pkgconfig
+    pkg-config
     pythonPackages.python
     zlib
   ] ++ other_services ++ lib.optional stdenv.isDarwin darwin_packages;
